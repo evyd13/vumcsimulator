@@ -146,8 +146,8 @@ VUmc Simulator is made by Evelien Dekkers.
           <?php echo $endhtml; ?>
         </div>
         <div id="box-just-confused" class="box" style="display: none;">
-          <h2 id="confused-title">You're just a confused man/woman.</h2>
-          <p id="confused-desc">Maybe you should get a boyfriend/girlfriend first.</p>
+          <h2 id="confused-title">You're just confused.</h2>
+          <p id="confused-desc">Maybe you should get a partner first.</p>
           <?php echo $endhtml; ?>
         </div>
         <div id="box-non-binary" class="box" style="display: none;">
