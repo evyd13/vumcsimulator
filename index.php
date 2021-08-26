@@ -59,8 +59,18 @@ VUmc Simulator is made by Evelien Dekkers.
           <h2>What is your gender?</h2>
           <p>Depending on your gender you may or may not be eligible our gender affirming care.</p>
           <div class="input">
-            <button type="button" onclick="goTo('question2');">Binary (male/female)</button>
+            <button type="button" onclick="gender = 'male'; goTo('sexual-orientation');">Male</button>
+            <button type="button" onclick="gender = 'female'; goTo('sexual-orientation');">Female</button>
             <button type="button" onclick="goTo('non-binary');">Non-binary</button>
+          </div>
+        </div>
+        <div id="box-sexual-orientation" class="box" style="display: none;">
+          <h2>Who are you sexually attracted to?</h2>
+          <p>Your sexual orientation determines whether you're trans or not.</p>
+          <div class="input">
+            <button type="button" onclick="determineOrientation('male');">Males</button>
+            <button type="button" onclick="determineOrientation('female');">Females</button>
+            <button type="button" onclick="goTo('just-confused');">Anyone</button>
           </div>
         </div>
         <div id="box-question2" class="box" style="display: none;">
@@ -135,6 +145,11 @@ VUmc Simulator is made by Evelien Dekkers.
           <p>Don't lie to me.</p>
           <?php echo $endhtml; ?>
         </div>
+        <div id="box-just-confused" class="box" style="display: none;">
+          <h2 id="confused-title">You're just a confused man/woman.</h2>
+          <p id="confused-desc">Maybe you should get a boyfriend/girlfriend first.</p>
+          <?php echo $endhtml; ?>
+        </div>
         <div id="box-non-binary" class="box" style="display: none;">
           <h2>Sike!</h2>
           <p>We don't treat non binary people lol get outta here</p>
@@ -148,6 +163,7 @@ VUmc Simulator is made by Evelien Dekkers.
       </div>
     </div>
     <script>
+      var gender; // will be filled in the first question
       var progressDelay = 10;
       // 8 seconden = (2.5 * 365 * 24 * 60 * 60) / 10,000,001 
       var progressTime = 79 / 100 *(1000 / progressDelay);
@@ -156,6 +172,25 @@ VUmc Simulator is made by Evelien Dekkers.
       var updateProgressFunc;
       var indication = document.getElementById('progress-indication');
       
+      function determineOrientation(attractedGender) {
+        console.log(gender, attractedGender)
+        var binary = ['male', 'female'];
+        if (binary.includes(gender) && binary.includes(attractedGender) && gender !== attractedGender) {
+          return goTo('question2')
+        } else {
+          if (binary.includes(attractedGender)) {
+            var misgender_i = binary.indexOf(gender) ^ 1; // Bitwise to flip the index
+            var genderDesc = attractedGender === 'male' ? 'boyfriend' : 'girlfriend';
+            var genderTitle = binary[misgender_i] === 'male' ? 'man' : 'woman';
+
+            document.getElementById('confused-title').textContent = "You're just a confused " + genderTitle + ".";
+            document.getElementById('confused-desc').textContent = 'Maybe you should get a ' + genderDesc + ' first.';
+          }
+
+          return goTo('just-confused');
+        }
+      }
+
       function goTo(elementId) {
         setTexts();
         var elements = document.getElementsByClassName('box')
