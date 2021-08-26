@@ -25,6 +25,13 @@ VUmc Simulator is made by Evelien Dekkers.
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="description" content="This simulator is here to let you experience the VUmc Gender Clinic on your device!"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="VUmc Gender Clinic Simulator | Experience VUmc on your device!" />
+    <meta property="og:site_name" content="VUmc Gender Clinic Simulator" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vumcsimulator.nl/" />
+    <meta property="og:image" content="https://vumcsimulator.nl/ogp_image.png" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:description" content="This simulator is here to let you experience the VUmc Gender Clinic on your device!" />
     <link rel="icon" href="/favicon.ico">
   </head>
   <body>
