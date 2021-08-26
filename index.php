@@ -57,8 +57,18 @@ VUmc Simulator is made by Evelien Dekkers.
           <h2>What is your gender?</h2>
           <p>Depending on your gender you may or may not be eligible our gender affirming care.</p>
           <div class="input">
-            <button type="button" onclick="goTo('question2');">Binary (male/female)</button>
+            <button type="button" onclick="gender = 'male'; goTo('sexual-orientation');">Male</button>
+            <button type="button" onclick="gender = 'female'; goTo('sexual-orientation');">Female</button>
             <button type="button" onclick="goTo('non-binary');">Non-binary</button>
+          </div>
+        </div>
+        <div id="box-sexual-orientation" class="box" style="display: none;">
+          <h2>Who are you sexually attracted to?</h2>
+          <p>Your sexual orientation determines whether you're trans or not.</p>
+          <div class="input">
+            <button type="button" onclick="determineOrientation('male');">Males</button>
+            <button type="button" onclick="determineOrientation('female');">Females</button>
+            <button type="button" onclick="determineOrientation('anyone');">Anyone</button>
           </div>
         </div>
         <div id="box-question2" class="box" style="display: none;">
@@ -133,6 +143,11 @@ VUmc Simulator is made by Evelien Dekkers.
           <p>Don't lie to me.</p>
           <?php echo $endhtml; ?>
         </div>
+        <div id="box-just-confused" class="box" style="display: none;">
+          <h2 id="confused-title">You're just confused.</h2>
+          <p id="confused-desc">Maybe you should get a partner first.</p>
+          <?php echo $endhtml; ?>
+        </div>
         <div id="box-non-binary" class="box" style="display: none;">
           <h2>Sike!</h2>
           <p>We don't treat non binary people lol get outta here</p>
@@ -146,6 +161,7 @@ VUmc Simulator is made by Evelien Dekkers.
       </div>
     </div>
     <script>
+      var gender; // will be filled in the first question
       var progressDelay = 10;
       // 8 seconden = (2.5 * 365 * 24 * 60 * 60) / 10,000,001 
       var progressTime = 79 / 100 *(1000 / progressDelay);
@@ -154,6 +170,28 @@ VUmc Simulator is made by Evelien Dekkers.
       var updateProgressFunc;
       var progressBar = document.getElementById('progress');
       
+      function determineOrientation(attractedGender) {
+        console.log(gender, attractedGender)
+        var binary = ['male', 'female'];
+        if (binary.includes(gender) && binary.includes(attractedGender) && gender !== attractedGender) {
+          return goTo('question2')
+        } else {
+          if (binary.includes(attractedGender)) {
+            var misgender_i = binary.indexOf(gender) ^ 1; // Bitwise to flip the index
+            var genderDesc = attractedGender === 'male' ? 'boyfriend' : 'girlfriend';
+            var genderTitle = binary[misgender_i] === 'male' ? 'man' : 'woman';
+
+            document.getElementById('confused-title').textContent = "You're just a confused " + genderTitle + ".";
+            document.getElementById('confused-desc').textContent = 'Maybe you should get a ' + genderDesc + ' first.';
+          } else {
+            document.getElementById('confused-title').textContent = "You're just confused.";
+            document.getElementById('confused-desc').textContent = 'Maybe you should get a partner first.';
+          }
+
+          return goTo('just-confused');
+        }
+      }
+
       function goTo(elementId) {
         setTexts();
         var elements = document.getElementsByClassName('box')
@@ -198,43 +236,33 @@ VUmc Simulator is made by Evelien Dekkers.
       }
       
       function setTexts() {
-        const data = [
-          [
-            "box-no-treatment",
-            "box-dont-lie",
-            "box-non-binary",
-            "box-too-autistic",
-            "box-too-fat",
+        var data = {
+          "no-treatment": [
+            "It seems you can't transition if you don't work on your other problems first.",
+            "That sucks. Good luck!"
           ],
-          [
-            [
-              "It seems you can't transition if you don't work on your other problems first.",
-              "That sucks. Good luck!",
-            ],
-            [
-              "Don't lie to me.",
-              "That's impossible.",
-              "So you don't want hormones then?",
-            ],
-            [
-              "We don't treat non binary people lol get outta here",
-              "What? Non-binary doesn't exist.",
-            ],
-            [
-              "You're too austistic my friend, sorry",
-              "You're already weird. Don't make it weirder.",
-            ],
-            [
-              "You should really lose some of that weight, otherwise we won't give you anything.",
-            ],
+          "dont-lie": [
+            "Don't lie to me.",
+            "That's impossible.",
+            "So you don't want hormones then?"
+          ],
+          "non-binary": [
+            "We don't treat non binary people lol get outta here",
+            "What? Non-binary doesn't exist."
+          ],
+          "too-autistic": [
+            "You're too autistic my friend, sorry.",
+            "You're already weird. Don't make it weirder."
+          ],
+          "too-fat": [
+            "You should really lose some of that weight, otherwise we won't give you anything."
           ]
-        ];
-        for (i=0; i < data[0].length; i++) {
-          var div = data[0][i];
-          var items = data[1][i];
-          var item = items[Math.floor(Math.random()*items.length)];
-          document.querySelector('#' + div + ' p').innerHTML = item;
-          
+        }
+
+        for (var reason in data) {
+          var items = data[reason];
+          item = items[Math.floor(Math.random() * items.length)]
+          document.querySelector('#box-' + reason + ' p').innerText = item;
         }
       }
     </script>
