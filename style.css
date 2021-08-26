@@ -85,5 +85,5 @@ small { display: block; font-size: 80%; }
   #content { height: 75%; }
   h2 { font-size: 250%; }
   p { font-size: 100%; }
-  button { display: block; margin: auto; }
+  button { display: block; margin: 10px auto; }
 }
