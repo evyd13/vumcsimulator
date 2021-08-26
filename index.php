@@ -189,7 +189,10 @@ VUmc Simulator is made by Evelien Dekkers.
       document.addEventListener('keydown', skipProgress);
       
       function skipProgress(e) {
-        if (e.code === "Space") {
+        var boxLoading = document.getElementById('box-progress');
+        
+        // Skip only the loading screen
+        if (boxLoading.style.display !== "none" && e.code === "Space") {
           goTo('question1');
         }
       }
