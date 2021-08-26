@@ -70,7 +70,7 @@ VUmc Simulator is made by Evelien Dekkers.
           <div class="input">
             <button type="button" onclick="determineOrientation('male');">Males</button>
             <button type="button" onclick="determineOrientation('female');">Females</button>
-            <button type="button" onclick="goTo('just-confused');">Anyone</button>
+            <button type="button" onclick="determineOrientation('anyone');">Anyone</button>
           </div>
         </div>
         <div id="box-question2" class="box" style="display: none;">
@@ -185,6 +185,9 @@ VUmc Simulator is made by Evelien Dekkers.
 
             document.getElementById('confused-title').textContent = "You're just a confused " + genderTitle + ".";
             document.getElementById('confused-desc').textContent = 'Maybe you should get a ' + genderDesc + ' first.';
+          } else {
+            document.getElementById('confused-title').textContent = "You're just confused.";
+            document.getElementById('confused-desc').textContent = 'Maybe you should get a partner first.';
           }
 
           return goTo('just-confused');
