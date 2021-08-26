@@ -10,6 +10,14 @@ $endhtml = <<<END
 END;
 
 ?>
+<!--
+Hey there! It seems you're looking at the source code of this website.
+If you feel like contributing, please head on over to the github repo here:
+https://github.com/evyd13/vumcsimulator
+
+VUmc Simulator is made by Evelien Dekkers.
+(Evelien#3065 on Discord and Evyd13 on GitHub)
+-->
 <!DOCTYPE html>
 <html>
   <head>
