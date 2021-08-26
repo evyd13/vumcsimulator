@@ -166,7 +166,7 @@ END;
         }
         else if (elementId === 'question1') {
           clearInterval(updateProgressFunc);
-          document.getElementById("progress-small").innerHTML = "(Press space to skip)";
+          document.getElementById("progress-small").innerHTML = "<span onclick=\"goTo('question1');\">(Press space to skip or click here)</span>";
         }
       }
       
@@ -176,6 +176,7 @@ END;
           progress = (progressTimePast / progressTime) * 1;
           indication.style.width = (Math.round(progress * 100) / 100) + '%';
         } else {
+          
           goTo('question1');
         }
       }
