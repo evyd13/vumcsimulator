@@ -50,9 +50,7 @@ VUmc Simulator is made by Evelien Dekkers.
         <div id="box-progress" class="box" style="display: none;">
           <h2>Please wait</h2>
           <p>We'll contact you in 2.5 years from now.</p>
-          <div id="progress">
-            <div id="progress-indication"></div>
-          </div>
+          <progress id="progress" value="0"></progress>
           <small id="progress-small">(Sped up by ten million times)</small>
         </div>
         <div id="box-question1" class="box" style="display: none;">
@@ -154,7 +152,7 @@ VUmc Simulator is made by Evelien Dekkers.
       var progressTimePast = 0;
       var progress = 0;
       var updateProgressFunc;
-      var indication = document.getElementById('progress-indication');
+      var progressBar = document.getElementById('progress');
       
       function goTo(elementId) {
         setTexts();
@@ -182,7 +180,7 @@ VUmc Simulator is made by Evelien Dekkers.
         if (progress < 100) {
           progressTimePast += progressDelay;
           progress = (progressTimePast / progressTime) * 1;
-          indication.style.width = (Math.round(progress * 100) / 100) + '%';
+          progressBar.value = Math.round(progress * 100) / 10000;
         } else {
           
           goTo('question1');
