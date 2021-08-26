@@ -197,43 +197,33 @@ VUmc Simulator is made by Evelien Dekkers.
       }
       
       function setTexts() {
-        const data = [
-          [
-            "box-no-treatment",
-            "box-dont-lie",
-            "box-non-binary",
-            "box-too-autistic",
-            "box-too-fat",
+        var data = {
+          "no-treatment": [
+            "It seems you can't transition if you don't work on your other problems first.",
+            "That sucks. Good luck!"
           ],
-          [
-            [
-              "It seems you can't transition if you don't work on your other problems first.",
-              "That sucks. Good luck!",
-            ],
-            [
-              "Don't lie to me.",
-              "That's impossible.",
-              "So you don't want hormones then?",
-            ],
-            [
-              "We don't treat non binary people lol get outta here",
-              "What? Non-binary doesn't exist.",
-            ],
-            [
-              "You're too austistic my friend, sorry",
-              "You're already weird. Don't make it weirder.",
-            ],
-            [
-              "You should really lose some of that weight, otherwise we won't give you anything.",
-            ],
+          "dont-lie": [
+            "Don't lie to me.",
+            "That's impossible.",
+            "So you don't want hormones then?"
+          ],
+          "non-binary": [
+            "We don't treat non binary people lol get outta here",
+            "What? Non-binary doesn't exist."
+          ],
+          "too-autistic": [
+            "You're too autistic my friend, sorry.",
+            "You're already weird. Don't make it weirder."
+          ],
+          "too-fat": [
+            "You should really lose some of that weight, otherwise we won't give you anything."
           ]
-        ];
-        for (i=0; i < data[0].length; i++) {
-          var div = data[0][i];
-          var items = data[1][i];
-          var item = items[Math.floor(Math.random()*items.length)];
-          document.querySelector('#' + div + ' p').innerHTML = item;
-          
+        }
+
+        for (var reason in data) {
+          var items = data[reason];
+          item = items[Math.floor(Math.random() * items.length)]
+          document.querySelector('#box-' + reason + ' p').innerText = item;
         }
       }
     </script>
