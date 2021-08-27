@@ -153,25 +153,25 @@ VUmc Simulator is made by Evelien Dekkers.
         <div id="box-loop4" class="box" style="display: none;">
           <h2>So... Still don't want to answer it?</h2>
           <div class="input">
-            <button type="button" onclick="goTo('loop5');">No</button>
+            <button type="button" onclick="goTo('loop5');">No, I don't</button>
           </div>
         </div>
         <div id="box-loop5" class="box" style="display: none;">
           <h2>I'm afraid you won't get hormones then.</h2>
           <div class="input">
-            <button type="button" onclick="goTo('loop6');">No</button>
+            <button type="button" onclick="goTo('loop6');">Ok</button>
           </div>
         </div>
         <div id="box-loop6" class="box" style="display: none;">
           <h2>See you next month!</h2>
           <div class="input">
-            <button type="button" onclick="goTo('loop7');">No</button>
+            <button type="button" onclick="goTo('loop7');">Ok</button>
           </div>
         </div>
         <div id="box-loop7" class="box" style="display: none;">
           <h2>...</h2>
           <div class="input">
-            <button type="button" onclick="goTo('loop8');">No</button>
+            <button type="button" onclick="goTo('loop8');">Ok</button>
           </div>
         </div>
         <div id="box-loop8" class="box" style="display: none;">
