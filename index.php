@@ -275,14 +275,14 @@ VUmc Simulator is made by Evelien Dekkers.
         get no_porn() {
           let base = [
             "Everyone has those urges.",
-          ]
-          return base.concat(this.dont_lie.slice(0,2))
+          ];
+          return base.concat(this.dont_lie.slice(0,2));
         }
       }
 
       for (let reason in data) {
         let items = data[reason];
-        item = items[Math.floor(Math.random() * items.length)]
+        item = items[Math.floor(Math.random() * items.length)];
         document.querySelector('#box-' + reason + ' p').innerText = item;
       }
     }
