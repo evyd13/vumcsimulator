@@ -19,7 +19,7 @@ VUmc Simulator is made by Evelien Dekkers.
 (Evelien#3065 on Discord and Evyd13 on GitHub)
 -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
     <title>VUmc Gender Clinic Simulator | Experience VUmc</title>
@@ -56,7 +56,7 @@ VUmc Simulator is made by Evelien Dekkers.
           <h2>Please wait</h2>
           <p>We'll contact you in 2.5 years from now.</p>
           <progress id="progress" value="0"></progress>
-          <small id="progress-small">(Sped up by ten million times)</small>
+          <small id="progress-small">(Sped up ten million times)</small>
         </div>
         <div id="box-question1" class="box" style="display: none;">
           <h2>What is your gender?</h2>
