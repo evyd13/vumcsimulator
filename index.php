@@ -273,9 +273,12 @@ VUmc Simulator is made by Evelien Dekkers.
         ],
         // use a getter function to reuse answers but also add unique ones
         get no_porn() {
+          // all unique answers for this option
           let base = [
             "Everyone has those urges.",
           ];
+          
+          // combine unique answers with shared answers
           return base.concat(this.dont_lie.slice(0,2));
         }
       }
