@@ -203,7 +203,7 @@ VUmc Simulator is made by Evelien Dekkers.
             document.getElementById('confused-desc').textContent = 'Maybe you should get a partner first.';
           }
 
-          return goTo('just-confused');
+          return goTo('just_confused');
         }
       }
 
