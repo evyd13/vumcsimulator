@@ -21,17 +21,17 @@ VUmc Simulator is made by Evelien Dekkers.
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VUmc Gender Clinic Simulator | Experience VUmc on your device!</title>
+    <title>VUmc Gender Clinic Simulator | Experience VUmc</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <meta name="description" content="This simulator is here to let you experience the VUmc Gender Clinic on your device!"/>
+    <meta name="description" content="Always wanted to know what the VUmc gender clinic is like? Try it now with the VUmc Simulator!"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="VUmc Gender Clinic Simulator | Experience VUmc on your device!" />
+    <meta property="og:title" content="VUmc Gender Clinic Simulator | Experience VUmc" />
     <meta property="og:site_name" content="VUmc Gender Clinic Simulator" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://vumcsimulator.nl/" />
     <meta property="og:image" content="https://vumcsimulator.nl/ogp_image.png" />
     <meta property="og:locale" content="en_GB" />
-    <meta property="og:description" content="This simulator is here to let you experience the VUmc Gender Clinic on your device!" />
+    <meta property="og:description" content="Always wanted to know what the VUmc gender clinic is like? Try it now with the VUmc Simulator!" />
     <link rel="icon" href="/favicon.ico">
   </head>
   <body>
@@ -42,7 +42,7 @@ VUmc Simulator is made by Evelien Dekkers.
       <div id="content">
         <div id="box-welcome" class="box">
           <h2>Welcome to the VUmc!</h2>
-          <p>What can I help you with today?</p>
+          <p>What can we help you with today?</p>
           <div class="input">
             <button type="button" onclick="goTo('progress');">Gender affirming care</button>
             <button type="button" onclick="goTo('ok');">Literally anything else</button>
