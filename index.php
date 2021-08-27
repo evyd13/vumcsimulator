@@ -246,6 +246,7 @@ VUmc Simulator is made by Evelien Dekkers.
       let progress = 0;
       let updateProgressFunc;
       let progressBar = document.getElementById('progress');
+      let loopsDone = 0;
 
       function determineOrientation(attractedGender) {
         console.log(gender, attractedGender)
@@ -287,7 +288,17 @@ VUmc Simulator is made by Evelien Dekkers.
         } else if (elementId === 'question1') {
           clearInterval(updateProgressFunc);
           document.getElementById("progress-small").innerHTML = "<span onclick=\"goTo('question1');\">(Press space to skip or click here)</span>";
+        } else if (elementId === 'loop2') {
+          loopsDone += 1;
+          if (loopsDone == 3) {
+          let buttons = document.querySelectorAll('button'), i;
+
+            for (i = 0; i < buttons.length; ++i) {
+              buttons[i].className = "shake";
+            }
+          }
         }
+        
       }
 
       function updateProgress() {
