@@ -42,6 +42,7 @@ VUmc Simulator is made by Evelien Dekkers.
         <img src="vumc.svg" alt="vumc amsterdam logo">
       </div>
       <div id="content">
+        <!-- Questions -->
         <div id="box-welcome" class="box">
           <h2>Welcome to the VUmc!</h2>
           <p>What can we help you with today?</p>
@@ -50,11 +51,6 @@ VUmc Simulator is made by Evelien Dekkers.
             <button type="button" onclick="goTo('ok');">Literally anything else</button>
           </div>
           <small>TW: Abuse, ableism, transphobia, fat shaming, sexual questions</small>
-        </div>
-        <div id="box-ok" class="box" style="display: none;">
-          <h2>Thanks!</h2>
-          <p>You will be invited for a first appointment in a few weeks.</p>
-          <?php echo $endhtml; ?>
         </div>
         <div id="box-progress" class="box" style="display: none;">
           <h2>Please wait</h2>
@@ -108,6 +104,7 @@ VUmc Simulator is made by Evelien Dekkers.
           <div class="input">
             <button type="button" onclick="goTo('question6');">Yes</button>
             <button type="button" onclick="goTo('question6');">No</button>
+            <button type="button" onclick="goTo('loop1');">I don't want to answer that</button> <!-- Starts a loop -->
           </div>
         </div>
         <div id="box-question6" class="box" style="display: none;">
@@ -132,6 +129,70 @@ VUmc Simulator is made by Evelien Dekkers.
             <button type="button" onclick="goTo('binary_end');">No</button>
           </div>
         </div>
+        
+        <!-- The 'I don't want to answer that' loop -->
+        <div id="box-loop1" class="box" style="display: none;">
+          <h2>Are you sure you don't want to?</h2>
+          <div class="input">
+            <button type="button" onclick="goTo('loop2');">Yes</button>
+            <button type="button" onclick="goTo('question5');">No</button>
+          </div>
+        </div>
+        <div id="box-loop2" class="box" style="display: none;">
+          <h2>But we need that information to diagnose you.</h2>
+          <div class="input">
+            <button type="button" onclick="goTo('loop3');">Ok</button>
+          </div>
+        </div>
+        <div id="box-loop3" class="box" style="display: none;">
+          <h2>I'm sorry, it's protocol.</h2>
+          <div class="input">
+            <button type="button" onclick="goTo('loop4');">Ok</button>
+          </div>
+        </div>
+        <div id="box-loop4" class="box" style="display: none;">
+          <h2>So... Still don't want to answer it?</h2>
+          <div class="input">
+            <button type="button" onclick="goTo('loop5');">No</button>
+          </div>
+        </div>
+        <div id="box-loop5" class="box" style="display: none;">
+          <h2>I'm afraid you won't get hormones then.</h2>
+          <div class="input">
+            <button type="button" onclick="goTo('loop6');">No</button>
+          </div>
+        </div>
+        <div id="box-loop6" class="box" style="display: none;">
+          <h2>See you next month!</h2>
+          <div class="input">
+            <button type="button" onclick="goTo('loop7');">No</button>
+          </div>
+        </div>
+        <div id="box-loop7" class="box" style="display: none;">
+          <h2>...</h2>
+          <div class="input">
+            <button type="button" onclick="goTo('loop8');">No</button>
+          </div>
+        </div>
+        <div id="box-loop8" class="box" style="display: none;">
+          <h2>Do you masturbate while wearing clothing of the opposite sex?</h2>
+          <div class="input">
+            <button type="button" onclick="goTo('loop9');">I don't want to answer that</button> <!-- Starts a loop -->
+          </div>
+        </div>
+        <div id="box-loop9" class="box" style="display: none;">
+          <h2>Are you sure you don't want to?</h2>
+          <div class="input">
+            <button type="button" onclick="goTo('loop2');">Yes</button>
+          </div>
+        </div>
+        
+        <!-- End screens -->
+        <div id="box-ok" class="box" style="display: none;">
+          <h2>Thanks!</h2>
+          <p>You will be invited for a first appointment in a few weeks.</p>
+          <?php echo $endhtml; ?>
+        </div>
         <div id="box-no_treatment" class="box" style="display: none;">
           <h2>Sorry.</h2>
           <p>It seems you can't transition if you don't work on your other problems first.</p>
@@ -140,12 +201,6 @@ VUmc Simulator is made by Evelien Dekkers.
         <div id="box-too_fat" class="box" style="display: none;">
           <h2>Sorry.</h2>
           <p>You should really lose some of that weight, otherwise we won't give you anything.</p>
-          <?php echo $endhtml; ?>
-        </div>
-        <div id="box-binary_end" class="box" style="display: none;">
-          <h2>Congratulations!</h2>
-          <p>You will start your transition soon!</p>
-          <small>But you gotta wait 1 year for hormones first to make sure you're actually trans.</small>
           <?php echo $endhtml; ?>
         </div>
         <div id="box-dont_lie" class="box" style="display: none;">
@@ -171,6 +226,13 @@ VUmc Simulator is made by Evelien Dekkers.
         <div id="box-no_porn" class="box" style="display: none;">
           <h2>So you're ashamed?</h2>
           <p>It's normal to have those urges</p>
+          <?php echo $endhtml; ?>
+        </div>
+        <!-- Winning screen -->
+        <div id="box-binary_end" class="box" style="display: none;">
+          <h2>Congratulations!</h2>
+          <p>You will start your transition soon!</p>
+          <small>But you gotta wait 1 year for hormones first to make sure you're actually trans.</small>
           <?php echo $endhtml; ?>
         </div>
       </div>
