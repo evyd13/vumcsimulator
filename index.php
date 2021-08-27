@@ -177,7 +177,7 @@ VUmc Simulator is made by Evelien Dekkers.
         <div id="box-loop8" class="box" style="display: none;">
           <h2>Do you masturbate while wearing clothing of the opposite sex?</h2>
           <div class="input">
-            <button type="button" onclick="goTo('loop9');">I don't want to answer that</button> <!-- Starts a loop -->
+            <button type="button" onclick="goTo('loop9');">I don't want to answer that</button>
           </div>
         </div>
         <div id="box-loop9" class="box" style="display: none;">
@@ -312,7 +312,7 @@ VUmc Simulator is made by Evelien Dekkers.
       }
 
       function setTexts() {
-        let data = {
+        let paragraphs = {
           no_treatment: [
             "It seems you can't transition if you don't work on your other problems first.",
             "That sucks. Good luck!"
@@ -344,9 +344,40 @@ VUmc Simulator is made by Evelien Dekkers.
             return base.concat(this.dont_lie.slice(0,2));
           }
         }
+        let titles = {
+          loop2: [
+            "But we need that information to diagnose you.",
+            "We can't give you a diagnosis if you don't answer.",
+            "Without that information we can't continue."
+          ],
+          loop3: [
+            "I'm sorry, it's protocol.",
+            "It's protocol unfortunately.",
+            "Nothing we can do about this protocol.",
+            "We are required to ask this."
+          ],
+          loop4: [
+            "So... Still don't want to answer it?",
+            "Do you want to answer the question now?"
+          ],
+          loop5: [
+            "I'm afraid you won't get hormones then.",
+            "We can't continue your treatment here.",
+            "Let's see how you feel next appointment."
+          ],
+          loop6: [
+            "See you next month!",
+            "We'll talk to you later."
+          ]
+        }
 
-        for (let reason in data) {
-          let items = data[reason];
+        for (let question in titles) {
+          let items = titles[question];
+          item = items[Math.floor(Math.random() * items.length)];
+          document.querySelector('#box-' + question + ' h2').innerText = item;
+        }
+        for (let reason in paragraphs) {
+          let items = paragraphs[reason];
           item = items[Math.floor(Math.random() * items.length)];
           document.querySelector('#box-' + reason + ' p').innerText = item;
         }
