@@ -303,12 +303,11 @@ VUmc Simulator is made by Evelien Dekkers.
           for (i = 0; i < buttons.length; ++i) {
             buttons[i].className = "loop" + loopsDone;
           }
-          if (loopsDone == 10 && showSecretMessage == false) {
+          if (loopsDone == 10) {
             let title = document.querySelector('#box-loop2 h2');
             title.innerText = "Game over.";
             document.querySelector('#box-loop2 button').style.display = "none";
             title.insertAdjacentHTML("afterend", "<p>But you made it to the secret end!</p>");
-            showSecretMessage = true;
             doAction('secretunlocked');
           }
         } else if (elementId === 'binary_end') {
@@ -421,8 +420,9 @@ VUmc Simulator is made by Evelien Dekkers.
         document.getElementById('user-id').textContent = obj.id;
         document.getElementById('user-won').textContent = obj.won;
         document.getElementById('user-lost').textContent = obj.lost;
-        if (obj.secretunlocked > 0) {
+        if (obj.secretunlocked > 0  && showSecretMessage == false) {
           document.getElementById('user-lost').insertAdjacentHTML("afterend", "<br />You have unlocked the secret ending!");
+          showSecretMessage = true;
         }
       }
     </script>
