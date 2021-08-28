@@ -255,6 +255,7 @@ VUmc Simulator is made by Evelien Dekkers.
       let loopsDone = 0;
       let buttons = document.querySelectorAll('button'), i;
       let lostScreens = ['ok', 'no_treatment', 'too_fat', 'dont_lie', 'just_confused', 'non_binary', 'too_autistic', 'no_porn'];
+      let showSecretMessage = false;
       doAction('info');
 
       function determineOrientation(attractedGender) {
@@ -302,11 +303,12 @@ VUmc Simulator is made by Evelien Dekkers.
           for (i = 0; i < buttons.length; ++i) {
             buttons[i].className = "loop" + loopsDone;
           }
-          if (loopsDone == 10) {
+          if (loopsDone == 10 && showSecretMessage == false) {
             let title = document.querySelector('#box-loop2 h2');
             title.innerText = "Game over.";
             document.querySelector('#box-loop2 button').style.display = "none";
             title.insertAdjacentHTML("afterend", "<p>But you made it to the secret end!</p>");
+            showSecretMessage = true;
             doAction('secretunlocked');
           }
         } else if (elementId === 'binary_end') {
