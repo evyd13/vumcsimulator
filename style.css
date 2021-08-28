@@ -86,17 +86,48 @@ button:hover { box-shadow: black 4px 4px; border: solid 4px black; }
 #progress::-webkit-progress-value { background: #e6000f; border-radius: 99px }
 
 small { display: block; font-size: 80%; }
+#version { text-align: left; margin: 5px; color: #cacaca; font-size: 80%; position: absolute; }
 
-/* Shakey from https://www.w3schools.com/howto/howto_css_shake_image.asp */
-.shake {
-  /* Start the shake animation and make the animation last for 0.5 seconds */
-  animation: shake 0.5s;
-
-  /* When the animation is finished, start again */
-  animation-iteration-count: infinite; 
+/** Loop buttons **/
+.loop2 {
+  animation: shakesideways 0.1s infinite;
+}
+.loop3 {
+  animation: shakeupdownsideways 0.1s infinite;
+}
+.loop4 { 
+  animation: shakeintense 0.2s infinite;
+}
+.loop5 {
+  animation: shakeintenser 0.2s infinite;
+}
+.loop6 {
+  animation: rotateshake .2s infinite linear;
+}
+.loop7 {
+  animation: movearound 10s infinite linear;
+}
+.loop8 {
+  animation: shakesuperintense .6s infinite;
+}
+.loop9 {
+  animation: hide .1s infinite;
 }
 
-@keyframes shake {
+@keyframes shakesideways {
+  0% { transform: translate(1px, 0px); }
+  100% { transform: translate(-1px, 0px); }
+}
+@keyframes shakeupdownsideways {
+  0% { transform: translate(0px, -2px); }
+  20% { transform: translate(2px, -2px); }
+  40% { transform: translate(2px, 0px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(0px, 2px); }
+  100% { transform: translate(0px, 0px); }
+}
+/* Shakey from https://www.w3schools.com/howto/howto_css_shake_image.asp */
+@keyframes shakeintense {
   0% { transform: translate(1px, 1px) rotate(0deg); }
   10% { transform: translate(-1px, -2px) rotate(-1deg); }
   20% { transform: translate(-3px, 0px) rotate(1deg); }
@@ -108,6 +139,57 @@ small { display: block; font-size: 80%; }
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+@keyframes shakeintenser {
+  0% { transform: translate(2px, 2px) rotate(0deg); }
+  10% { transform: translate(-2px, -4px) rotate(-2deg); }
+  20% { transform: translate(-6px, 0px) rotate(2deg); }
+  30% { transform: translate(6px, 4px) rotate(0deg); }
+  40% { transform: translate(2px, -2px) rotate(2deg); }
+  50% { transform: translate(-2px, 4px) rotate(-2deg); }
+  60% { transform: translate(-6px, 2px) rotate(0deg); }
+  70% { transform: translate(6px, 2px) rotate(-2deg); }
+  80% { transform: translate(-2px, -2px) rotate(2deg); }
+  90% { transform: translate(2px, 4px) rotate(0deg); }
+  100% { transform: translate(2px, -4px) rotate(-2deg); }
+}
+@keyframes rotateshake {
+  0% { transform: translate(0px, -2px) rotate(0deg); }
+  20% { transform: translate(2px, -2px) rotate(72deg); }
+  40% { transform: translate(2px, 0px) rotate(144deg); }
+  60% { transform: translate(2px, 2px) rotate(216deg); }
+  80% { transform: translate(0px, 2px) rotate(288deg); }
+  100% { transform: translate(0px, 0px) rotate(360deg); }
+}
+@keyframes movearound {
+  0% { transform: translate(0px, 0px); }
+  10% { transform: translate(-100px, -100px); }
+  20% { transform: translate(-100px, 0px); }
+  30% { transform: translate(100px, 100px); }
+  40% { transform: translate(100px, -100px); }
+  50% { transform: translate(-100px, 100px); }
+  60% { transform: translate(-100px, 0px); }
+  70% { transform: translate(100px, 100px); }
+  80% { transform: translate(-100px, -100px); }
+  90% { transform: translate(100px, 100px); }
+  100% { transform: translate(0px, 0px); }
+}
+@keyframes shakesuperintense {
+  0% { transform: translate(10px, 10px) rotate(0deg); }
+  10% { transform: translate(-10px, -20px) rotate(-20deg); }
+  20% { transform: translate(-30px, 0px) rotate(20deg); }
+  30% { transform: translate(30px, 20px) rotate(0deg); }
+  40% { transform: translate(10px, -10px) rotate(20deg); }
+  50% { transform: translate(-10px, 20px) rotate(-20deg); }
+  60% { transform: translate(-30px, 10px) rotate(0deg); }
+  70% { transform: translate(30px, 10px) rotate(-20deg); }
+  80% { transform: translate(-10px, -10px) rotate(20deg); }
+  90% { transform: translate(10px, 20px) rotate(0deg); }
+  100% { transform: translate(10px, -20px) rotate(-20deg); }
+}
+@keyframes hide {
+  0% { opacity: 0; }
+  100% { opacity: 0; }
 }
 
 @media only screen and (max-width: 500px) {
