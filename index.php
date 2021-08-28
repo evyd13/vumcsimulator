@@ -38,7 +38,12 @@ VUmc Simulator is made by Evelien Dekkers.
 
   <body>
     <div id="box">
-      <div id="version">Last update: 28-08-2021</div>
+      <div id="version">
+        Last update: 28-08-2021<br /><br />
+        Hello, number <span id="user-id">...</span><br />
+        Won: <span id="user-won">...</span><br />
+        Lost: <span id="user-lost">...</span>
+      </div>
       <div id="logo">
         <img src="vumc.svg" alt="vumc amsterdam logo">
       </div>
@@ -249,6 +254,8 @@ VUmc Simulator is made by Evelien Dekkers.
       let progressBar = document.getElementById('progress');
       let loopsDone = 0;
       let buttons = document.querySelectorAll('button'), i;
+      let lostScreens = ['ok', 'no_treatment', 'too_fat', 'dont_lie', 'just_confused', 'non_binary', 'too_autistic', 'no_porn'];
+      doAction('info');
 
       function determineOrientation(attractedGender) {
         console.log(gender, attractedGender)
@@ -300,7 +307,13 @@ VUmc Simulator is made by Evelien Dekkers.
             title.innerText = "Game over.";
             document.querySelector('#box-loop2 button').style.display = "none";
             title.insertAdjacentHTML("afterend", "<p>But you made it to the secret end!</p>");
+            doAction('secretunlocked');
           }
+        } else if (elementId === 'binary_end') {
+          doAction('won');
+        }
+        if (lostScreens.includes(elementId)) {
+          doAction('lost');
         }
         
       }
@@ -395,6 +408,19 @@ VUmc Simulator is made by Evelien Dekkers.
           let items = paragraphs[reason];
           item = items[Math.floor(Math.random() * items.length)];
           document.querySelector('#box-' + reason + ' p').innerText = item;
+        }
+      }
+      function doAction(action) {
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "score.php?action=" + action, false);
+        xhttp.send();
+
+        const obj = JSON.parse(xhttp.responseText);
+        document.getElementById('user-id').textContent = obj.id;
+        document.getElementById('user-won').textContent = obj.won;
+        document.getElementById('user-lost').textContent = obj.lost;
+        if (obj.secretunlocked > 0) {
+          document.getElementById('user-lost').insertAdjacentHTML("afterend", "<br />You have unlocked the secret ending!");
         }
       }
     </script>
