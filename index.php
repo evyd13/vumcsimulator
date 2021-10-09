@@ -53,10 +53,15 @@ VUmc Simulator is made by Evelien Dekkers.
           <h2>Welcome to the VUmc!</h2>
           <p>What can we help you with today?</p>
           <div class="input">
-            <button type="button" onclick="goTo('progress');">Gender affirming care</button>
+            <button type="button" onclick="goTo('now-closed');">Gender affirming care</button>
             <button type="button" onclick="goTo('ok');">Literally anything else</button>
           </div>
           <small>TW: Abuse, ableism, transphobia, fat shaming, sexual questions</small>
+        </div>
+        <div id="box-now-closed" class="box" style="display: none;">
+          <h2>Sorry, we're not accepting new patients right now!</h2>
+          <p>Try contacting us again in around 10 years or so.</p>
+          <?php echo $endhtml; ?>
         </div>
         <div id="box-progress" class="box" style="display: none;">
           <h2>Please wait</h2>
