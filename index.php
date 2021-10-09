@@ -259,7 +259,7 @@ VUmc Simulator is made by Evelien Dekkers.
       let progressBar = document.getElementById('progress');
       let loopsDone = 0;
       let buttons = document.querySelectorAll('button'), i;
-      let lostScreens = ['ok', 'no_treatment', 'too_fat', 'dont_lie', 'just_confused', 'non_binary', 'too_autistic', 'no_porn'];
+      let lostScreens = ['now-closed', 'ok', 'no_treatment', 'too_fat', 'dont_lie', 'just_confused', 'non_binary', 'too_autistic', 'no_porn'];
       let showSecretMessage = false;
       doAction('info');
 
