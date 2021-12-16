@@ -82,7 +82,7 @@ button:hover { box-shadow: black 4px 4px; border: solid 4px black; }
 #progress::-webkit-progress-value { background: #e6000f; border-radius: 99px }
 
 small { display: block; font-size: 80%; }
-#version { text-align: left; padding: 5px; color: #cacaca; font-size: 80%; display:block; }
+#version { text-align: left; padding: 5px; color: #000000; font-size: 80%; display:block; }
 
 /** Loop buttons **/
 .loop2 {
@@ -93,7 +93,7 @@ small { display: block; font-size: 80%; }
 }
 .loop4 { 
   animation: shakeintense 0.2s infinite;
-}
+} 
 .loop5 {
   animation: shakeintenser 0.2s infinite;
 }
