@@ -27,7 +27,7 @@ class User {
                 $stmt = $this->pdo->prepare("INSERT INTO user (uuid) VALUES (?)");
                 $stmt->execute([$uuid]);
                 $this->pdo->commit();
-            }catch (Exception $e){
+            } catch (Exception $e){
                 $this->pdo->rollback();
                 throw $e;
             }
@@ -41,7 +41,7 @@ class User {
 
     private function getUuid() {
         $uuid = '';
-        if(!isset($_COOKIE[$this->COOKIE_NAME])) {
+        if (!isset($_COOKIE[$this->COOKIE_NAME])) {
             $uuid = sha1($_SERVER['REMOTE_ADDR']);
         } else {
             $uuid = $_COOKIE[$this->COOKIE_NAME];
@@ -57,7 +57,7 @@ class User {
             $stmt = $this->pdo->prepare("UPDATE user SET won=?, lost=?, secretunlocked=? WHERE uuid=?");
             $stmt->execute([$this->won, $this->lost, $this->secretunlocked, $this->getUuid()]);
             $this->pdo->commit();
-        }catch (Exception $e){
+        } catch (Exception $e){
             $this->pdo->rollback();
             throw $e;
         }
