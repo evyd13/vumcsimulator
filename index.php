@@ -39,7 +39,7 @@ VUmc Simulator is made by Evelien Dekkers.
   <body>
     <div id="box">
       <div id="version">
-        Last update: 28-08-2021<br /><br />
+        Last update: 20-12-2021<br /><br />
         Hello, number <span id="user-id">...</span><br />
         Won: <span id="user-won">...</span><br />
         Lost: <span id="user-lost">...</span>
