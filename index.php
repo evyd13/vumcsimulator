@@ -250,7 +250,7 @@ VUmc Simulator is made by Evelien Dekkers.
         </div>
         <div id="box-no_one" class="box" style="display: none;">
           <h2>"Asexual"?</h2>
-          <p>That's not in my ICD 10, you must have made that up.</p>
+          <p>That's not in my DSM V, you must have made that up.</p>
           <?php echo $endhtml; ?>
         </div>
         <!-- Winning screen -->
