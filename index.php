@@ -12,7 +12,7 @@ END;
 ?>
 <!--
 Hey there! It seems you're looking at the source code of this website.
-If you feel like contributing, please head on over to the github repo here:
+If you feel like contributing, please head on over to the GitHub repo here:
 https://github.com/evyd13/vumcsimulator
 
 VUmc Simulator is made by Evelien Dekkers.
@@ -39,7 +39,7 @@ VUmc Simulator is made by Evelien Dekkers.
   <body>
     <div id="box">
       <div id="version">
-        Last update: 20-12-2021<br /><br />
+        Last update: 02-05-2022<br /><br />
         Hello, number <span id="user-id">...</span><br />
         Won: <span id="user-won">...</span><br />
         Lost: <span id="user-lost">...</span>
@@ -75,7 +75,7 @@ VUmc Simulator is made by Evelien Dekkers.
         </div>
         <div id="box-hrt" class="box" style="display: none;">
           <h2>Did you do DIY HRT?</h2>
-          <p>Maybe through <a href="http://hrt.cafe">hrt.cafe</a> ...</p>
+          <p>(Maybe through <a href="https://hrt.cafe">hrt.cafe</a>...)</p>
           <div class="input">
             <button type="button" onclick="goTo('hrt_illegal');">Yes</button>
             <button type="button" onclick="goTo('sexual-orientation');">No</button>
@@ -235,7 +235,7 @@ VUmc Simulator is made by Evelien Dekkers.
         </div>
         <div id="box-too_autistic" class="box" style="display: none;">
           <h2>Oh...</h2>
-          <p>You're too austistic my friend, sorry</p>
+          <p>You're too autistic my friend, sorry</p>
           <?php echo $endhtml; ?>
         </div>
         <div id="box-no_porn" class="box" style="display: none;">
@@ -245,7 +245,7 @@ VUmc Simulator is made by Evelien Dekkers.
         </div>
         <div id="box-hrt_illegal" class="box" style="display: none;">
           <h2>You can't do that!</h2>
-          <p>It's illegal, and it's dangerous, and you'll get trombisis, and your bones will degrade, and and and...</p>
+          <p>It's illegal, and it's dangerous, and you'll get thrombosis, and your bones will degrade, and...</p>
           <?php echo $endhtml; ?>
         </div>
         <div id="box-no_one" class="box" style="display: none;">
