@@ -68,9 +68,17 @@ VUmc Simulator is made by Evelien Dekkers.
           <h2>What is your gender?</h2>
           <p>Depending on your gender you may or may not be eligible our gender affirming care.</p>
           <div class="input">
-            <button type="button" onclick="gender = 'male'; goTo('sexual-orientation');">Male</button>
-            <button type="button" onclick="gender = 'female'; goTo('sexual-orientation');">Female</button>
+            <button type="button" onclick="gender = 'male'; goTo('hrt');">Male</button>
+            <button type="button" onclick="gender = 'female'; goTo('hrt');">Female</button>
             <button type="button" onclick="goTo('non_binary');">Non-binary</button>
+          </div>
+        </div>
+        <div id="box-hrt" class="box" style="display: none;">
+          <h2>Did you do DIY HRT?</h2>
+          <p>Maybe through <a href="http://hrt.cafe">hrt.cafe</a> ...</p>
+          <div class="input">
+            <button type="button" onclick="goTo('hrt_illegal');">Yes</button>
+            <button type="button" onclick="goTo('sexual-orientation');">No</button>
           </div>
         </div>
         <div id="box-sexual-orientation" class="box" style="display: none;">
@@ -80,6 +88,7 @@ VUmc Simulator is made by Evelien Dekkers.
             <button type="button" onclick="determineOrientation('male');">Males</button>
             <button type="button" onclick="determineOrientation('female');">Females</button>
             <button type="button" onclick="determineOrientation('anyone');">Anyone</button>
+            <button type="button" onclick="goTo('no_one');">No-one</button>
           </div>
         </div>
         <div id="box-question2" class="box" style="display: none;">
@@ -232,6 +241,16 @@ VUmc Simulator is made by Evelien Dekkers.
         <div id="box-no_porn" class="box" style="display: none;">
           <h2>So you're ashamed?</h2>
           <p>It's normal to have those urges</p>
+          <?php echo $endhtml; ?>
+        </div>
+        <div id="box-hrt_illegal" class="box" style="display: none;">
+          <h2>You can't do that!</h2>
+          <p>It's illegal, and it's dangerous, and you'll get trombisis, and your bones will degrade, and and and...</p>
+          <?php echo $endhtml; ?>
+        </div>
+        <div id="box-no_one" class="box" style="display: none;">
+          <h2>"Asexual"?</h2>
+          <p>That's not in my DSM V, you must have made that up.</p>
           <?php echo $endhtml; ?>
         </div>
         <!-- Winning screen -->

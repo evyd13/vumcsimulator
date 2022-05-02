@@ -35,7 +35,7 @@ let updateProgressFunc;
 let progressBar = document.getElementById('progress');
 let loopsDone = 0;
 let buttons = document.querySelectorAll('button'), i;
-const lostScreens = ['ok', 'no_treatment', 'too_fat', 'dont_lie', 'just_confused', 'non_binary', 'too_autistic', 'no_porn'];
+const lostScreens = ['ok', 'no_treatment', 'too_fat', 'dont_lie', 'just_confused', 'non_binary', 'too_autistic', 'no_porn', 'no_one', 'hrt_illegal'];
 let showSecretMessage = false;
 doAction('info');
 
