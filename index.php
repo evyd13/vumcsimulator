@@ -75,7 +75,7 @@ VUmc Simulator is made by Evelien Dekkers.
         </div>
         <div id="box-hrt" class="box" style="display: none;">
           <h2>Did you do DIY HRT?</h2>
-          <p>(Maybe through <a href="https://hrt.cafe">hrt.cafe</a>...)</p>
+          <p>(Maybe through <a href="https://hrt.coffee">hrt.coffee</a>...)</p>
           <div class="input">
             <button type="button" onclick="goTo('hrt_illegal');">Yes</button>
             <button type="button" onclick="goTo('sexual-orientation');">No</button>
