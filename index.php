@@ -5,7 +5,15 @@ $endhtml = <<<END
             <button type="button" onclick="goTo('welcome');">Play again</button>
           </div>
           <small>This simulator is based on real experiences people have with the VUmc gender clinic.<br />Please <a href="https://www.change.org/p/amsterdam-umc-genderteam-hervorming-transzorg-amsterdam-umc-ed55f556-9c20-4fbf-ac4b-bad75a22a605">sign the petition</a> today!</small><br />
-          <small>Made by Evelien</small>
+          <small>Some useful resources:</small><br />
+          <small>
+              <ul>
+                  <li><a href="https://diyhrt.info">DIY HRT.INFO</a></li>
+                  <li><a href="https://transineigenhand.nl">Trans In Eigen Hand</a></li>
+                  <li><a href="https://transgenderwegwijzer.nl/">Transgender Wegwijzer</a></li>
+              </ul>
+          </small><br />
+          <small>VUmc simulator is made by Evelien.</small>
 
 END;
 
@@ -15,8 +23,8 @@ Hey there! It seems you're looking at the source code of this website.
 If you feel like contributing, please head on over to the GitHub repo here:
 https://github.com/evyd13/vumcsimulator
 
-VUmc Simulator is made by Evelien Dekkers.
-(Evelien#3065 on Discord and Evyd13 on GitHub)
+VUmc Simulator is made by Evelien-Lillian Dekkers.
+(@evelien on Discord and Evyd13 on GitHub)
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +39,7 @@ VUmc Simulator is made by Evelien Dekkers.
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://vumcsimulator.nl/" />
     <meta property="og:image" content="https://vumcsimulator.nl/ogp_image.png" />
-    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale" content="nl_NL" />
     <meta property="og:description" content="Always wanted to know what the VUmc gender clinic is like? Try it now with the VUmc Simulator!" />
     <link rel="icon" href="/favicon.ico">
   </head>
@@ -39,7 +47,7 @@ VUmc Simulator is made by Evelien Dekkers.
   <body>
     <div id="box">
       <div id="version">
-        Last update: 02-05-2022<br /><br />
+        Last update: 09-02-2025<br /><br />
         Hello, number <span id="user-id">...</span><br />
         Won: <span id="user-won">...</span><br />
         Lost: <span id="user-lost">...</span>
@@ -50,17 +58,18 @@ VUmc Simulator is made by Evelien Dekkers.
       <div id="content">
         <!-- Questions -->
         <div id="box-welcome" class="box">
-          <h2>Welcome to the VUmc!</h2>
+          <h2>Welcome to the AUMC!</h2>
           <p>What can we help you with today?</p>
           <div class="input">
             <button type="button" onclick="goTo('progress');">Gender affirming care</button>
             <button type="button" onclick="goTo('ok');">Literally anything else</button>
           </div>
-          <small>TW: Abuse, ableism, transphobia, fat shaming, sexual questions</small>
+          <small>TW: Abuse, ableism, transphobia, fat shaming, sexual questions</small><br />
+          <small>Gender related care used to be with VUmc but now it is with AUMC. Therefore this website is called VUmc Simulator.</small>
         </div>
         <div id="box-progress" class="box" style="display: none;">
           <h2>Please wait</h2>
-          <p>We'll contact you in 2.5 years from now.</p>
+          <p>We'll contact you in about 5 years from now. Probably longer!</p>
           <progress id="progress" value="0"></progress>
           <small id="progress-small">(Sped up ten million times)</small>
         </div>
@@ -75,7 +84,7 @@ VUmc Simulator is made by Evelien Dekkers.
         </div>
         <div id="box-hrt" class="box" style="display: none;">
           <h2>Did you do DIY HRT?</h2>
-          <p>(Maybe through <a href="https://hrt.cafe">hrt.cafe</a>...)</p>
+          <p>(Maybe through <a href="https://diyhrt.info" target="_blank" >other available sources</a>...?)</p>
           <div class="input">
             <button type="button" onclick="goTo('hrt_illegal');">Yes</button>
             <button type="button" onclick="goTo('sexual-orientation');">No</button>

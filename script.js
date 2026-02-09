@@ -27,10 +27,12 @@ const titles = {
 
 let gender; // will be filled in the first question
 let progressDelay = 10;
-// 8 seconden = (2.5 * 365 * 24 * 60 * 60) / 10,000,001 
-let progressTime = 79 / 100 * (1000 / progressDelay);
+// 16 seconds = (5 * 365 * 24 * 60 * 60) / 10,000,001 
+// but this doesn't seem to work well. so we estimate. current factor is 66. change accordingly.
+let progressTime = 66 / 100 * (1000 / progressDelay);
 let progressTimePast = 0;
 let progress = 0;
+let progressState = 0;
 let updateProgressFunc;
 let progressBar = document.getElementById('progress');
 let loopsDone = 0;
@@ -102,10 +104,23 @@ function goTo(elementId) {
 
 function updateProgress() {
     if (progress < 100) {
-        progressTimePast += progressDelay;
+        if (progressState === 0) {
+            progressTimePast += progressDelay;
+        } else if (progressState === 1) {
+            progressTimePast -= progressDelay * 2;
+        } else {
+            progressTimePast += progressDelay;
+        }
+        
+        if (progressState === 0 && progress > 95) {
+            progressState = 1;
+        } else if (progressState === 1 && progress < 65) {
+            progressState = 2;
+        }
         progress = (progressTimePast / progressTime) * 1;
         progressBar.value = Math.round(progress * 100) / 10000;
     } else {
+        progressState = 2;
         goTo('question1');
     }
 }
